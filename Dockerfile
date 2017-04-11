@@ -21,6 +21,7 @@ RUN yum install -y redis \
 	&& yum clean all \
 	&& systemctl enable redis.service
 
+COPY mongod.conf /etc/mongod.conf
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/sbin/init"]
